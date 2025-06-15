@@ -328,7 +328,7 @@ jobs:
           echo Compression completed.
 
       - name: Uploading APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: apk-${{ matrix.platform }}
           path: ./secondary_disk/out/android_${{ matrix.platform }}/apks/
@@ -377,27 +377,27 @@ jobs:
             https://github.com/kiwibrowser/src.next/releases
 
       - name: Downloading artifact (arm)
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: apk-arm
 
       - name: Downloading artifact (arm64)
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: apk-arm64
 
       - name: Downloading artifact (x86)
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: apk-x86
 
       - name: Downloading artifact (x64)
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: apk-x64
 
       - name: Uploading mapping file into GitHub release (arm)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -407,7 +407,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
 
       - name: Uploading mapping file into GitHub release (arm64)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -417,7 +417,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
 
       - name: Uploading mapping file into GitHub release (x86)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -427,7 +427,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
 
       - name: Uploading mapping file into GitHub release (x64)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -437,7 +437,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
 
       - name: Uploading native mapping file into GitHub release (arm)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -447,7 +447,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
 
       - name: Uploading native mapping file into GitHub release (arm64)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -457,7 +457,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
 
       - name: Uploading native mapping file into GitHub release (x86)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
@@ -467,7 +467,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
 
       - name: Uploading native mapping file into GitHub release (x64)
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
