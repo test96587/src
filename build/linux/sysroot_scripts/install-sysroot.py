@@ -27,7 +27,8 @@ import re
 import shutil
 import subprocess
 import sys
-import urllib2
+import urllib.request
+import urllib.error
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
