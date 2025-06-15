@@ -128,9 +128,9 @@ def InstallSysroot(target_platform, target_arch):
     shutil.rmtree(sysroot)
   os.mkdir(sysroot)
   tarball = os.path.join(sysroot, tarball_filename)
-  print ('Downloading %s') % url
+  print ('Downloading %s' % url
   sys.stdout.flush()
-  sys.stderr.flush()
+  sys.stderr.flush())
   for _ in range(3):
     try:
       response = urllib2.urlopen(url)
