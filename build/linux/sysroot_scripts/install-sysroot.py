@@ -76,7 +76,7 @@ def main(args):
 
   if options.print_hash:
     arch = options.print_hash
-    print GetSysrootDict(DEFAULT_TARGET_PLATFORM,ARCH_TRANSLATIONS.get(arch, arch))['Sha1Sum']
+    print (GetSysrootDict(DEFAULT_TARGET_PLATFORM, ARCH_TRANSLATIONS.get(arch, arch))['Sha1Sum'])
     return 0
   if options.arch:
     InstallSysroot(DEFAULT_TARGET_PLATFORM,
