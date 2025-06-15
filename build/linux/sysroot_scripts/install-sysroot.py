@@ -133,7 +133,7 @@ def InstallSysroot(target_platform, target_arch):
   sys.stderr.flush()
   for _ in range(3):
     try:
-      response = urllib2.urlopen(url)
+      response = urllib.request.urlopen(url)
       with open(tarball, "wb") as f:
         f.write(response.read())
       break
