@@ -46,7 +46,13 @@ jobs:
         run: sudo rm -rf /usr/share/dotnet /imagegeneration
 
       - name: Checking-out source-code in $GITHUB_WORKSPACE
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        
+      - name: SSH PRIVATE_KEY
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        # ... other steps
 
       - name: Creating secondary disk folder on /dev/disk/azure/resource-part1 (SSD)
         run: |
@@ -69,7 +75,7 @@ jobs:
       # so we have a symbolic link $GITHUB_WORKSPACE/secondary_disk/ pointing to the SSD
       # and checkout the code there
       - name: Checking-out CIPD dependencies in /mnt/secondary_disk/.cipd
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: kiwibrowser/dependencies
           path: ./secondary_disk/.cipd 
