@@ -122,8 +122,8 @@ def InstallSysroot(target_platform, target_arch):
       if s.read() == url:
         return
 
-  print 'Installing Debian %s %s root image: %s' % \
-      (target_platform, target_arch, sysroot)
+  print ('Installing Debian %s %s root image: %s' % \
+      (target_platform, target_arch, sysroot))
   if os.path.isdir(sysroot):
     shutil.rmtree(sysroot)
   os.mkdir(sysroot)
