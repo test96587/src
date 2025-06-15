@@ -85,7 +85,7 @@ def main(args):
     for arch in VALID_ARCHS:
       InstallSysroot(DEFAULT_TARGET_PLATFORM, arch)
   else:
-    print 'You much specify one of the options.'
+    print ('You much specify one of the options.')
     return 1
 
   return 0
@@ -121,13 +121,13 @@ def InstallSysroot(target_platform, target_arch):
       if s.read() == url:
         return
 
-  print 'Installing Debian %s %s root image: %s' % \
+  print ('Installing Debian %s %s root image: %s') % \
       (target_platform, target_arch, sysroot)
   if os.path.isdir(sysroot):
     shutil.rmtree(sysroot)
   os.mkdir(sysroot)
   tarball = os.path.join(sysroot, tarball_filename)
-  print 'Downloading %s' % url
+  print ('Downloading %s') % url
   sys.stdout.flush()
   sys.stderr.flush()
   for _ in range(3):
