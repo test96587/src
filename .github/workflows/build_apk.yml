@@ -145,11 +145,13 @@ jobs:
       - name: Creating rclone config
         run: |
           mkdir -p $HOME/.config/rclone/
-          echo '[cache]' > $HOME/.config/rclone/rclone.conf
-          echo 'type = sftp' >> $HOME/.config/rclone/rclone.conf
-          echo 'host = ${{ secrets.STORAGE_HOST }}' >> $HOME/.config/rclone/rclone.conf
-          echo 'user = storage' >> $HOME/.config/rclone/rclone.conf
-          echo 'key_pem = ${{ secrets.STORAGE_KEY }}' >> $HOME/.config/rclone/rclone.conf
+          cat <<EOF > $HOME/.config/rclone/rclone.conf
+          [cache]
+          type = sftp
+          host = ${{ secrets.STORAGE_HOST }}
+          user = storage
+          key_pem = ${{ secrets.STORAGE_KEY }}
+          EOF
 
       - name: Creating cache folder on /dev/disk/azure/resource-part1 (SSD)
         run: |
@@ -193,11 +195,13 @@ jobs:
       - name: Creating rclone config to upload the cache
         if: ${{ github.repository_owner == 'kiwibrowser' }}
         run: |
-          echo '[sync]' > $HOME/.config/rclone/rclone.conf
-          echo 'type = sftp' >> $HOME/.config/rclone/rclone.conf
-          echo 'host = ${{ secrets.STORAGE_HOST }}' >> $HOME/.config/rclone/rclone.conf
-          echo 'user = storage' >> $HOME/.config/rclone/rclone.conf
-          echo 'key_pem = ${{ secrets.STORAGE_KEY }}' >> $HOME/.config/rclone/rclone.conf
+          cat <<EOF > $HOME/.config/rclone/rclone.conf
+          [sync]
+          type = sftp
+          host = ${{ secrets.STORAGE_HOST }}
+          user = storage
+          key_pem = ${{ secrets.STORAGE_KEY }}
+          EOF
 
       - name: Checking available disk-space before build
         run: df -h
