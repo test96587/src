@@ -159,6 +159,17 @@ jobs:
       - name: Creating symlink in $HOME/cache pointing to cache on /dev/disk/azure/resource-part1
         run: ln -s /mnt/cache $HOME/
 
+      - name: Start ssh-agent and add key
+        env:
+        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY_SECRET }}
+        run: |
+         eval "$(ssh-agent -s)"
+         mkdir -p ~/.ssh
+         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+         chmod 600 ~/.ssh/id_ed25519
+         ssh-add ~/.ssh/id_ed25519
+
+
       - name: Downloading binary objects cache to $HOME/cache
         run: rclone copy --fast-list --transfers=128 cache:kiwibrowser-ccache-${{ matrix.platform }} $HOME/cache
 
