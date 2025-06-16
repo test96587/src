@@ -487,7 +487,7 @@ fi
 if package_exists libpng16-16; then
   lib_list="${lib_list} libpng16-16"
 else
-  lib_list="${lib_list} libpng12-0"
+  lib_list="${lib_list} libpng16-16"
 fi
 if package_exists libnspr4; then
   lib_list="${lib_list} libnspr4 libnss3"
