@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
@@ -47,12 +47,6 @@ jobs:
 
       - name: Checking-out source-code in $GITHUB_WORKSPACE
         uses: actions/checkout@v4
-        
-      - name: SSH PRIVATE_KEY
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        # ... other steps
 
       - name: Creating secondary disk folder on /dev/disk/azure/resource-part1 (SSD)
         run: |
