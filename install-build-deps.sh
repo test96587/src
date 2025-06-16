@@ -219,7 +219,7 @@ chromeos_lib_list="libpulse0 libbz2-1.0"
 # List of required run-time libraries
 common_lib_list="\
   lib32z1
-  libasound2
+  libasound2t64
   libatk1.0-0
   libatspi2.0-0
   libc6
@@ -286,7 +286,7 @@ lib32_list="linux-libc-dev:i386 libpci3:i386"
 # includes some 32-bit libraries required by the Android SDK
 # See https://developer.android.com/sdk/installing/index.html?pkg=tools
 lib32_list="$lib32_list
-  libasound2:i386
+  libasound2t64:i386
   libatk-bridge2.0-0:i386
   libatk1.0-0:i386
   libatspi2.0-0:i386
