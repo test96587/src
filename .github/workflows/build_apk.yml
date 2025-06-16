@@ -91,7 +91,7 @@ jobs:
 
       - name: Installing system dependencies
         run: |
-          sudo bash install-build-deps.sh --no-chromeos-fonts
+          sudo bash install-build-deps.sh --no-chromeos-fonts --unsupported
           build/linux/sysroot_scripts/install-sysroot.py --arch=i386
           build/linux/sysroot_scripts/install-sysroot.py --arch=amd64
 
